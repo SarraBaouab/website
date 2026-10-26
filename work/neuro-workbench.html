@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuro Workbench, Sarra Baouab</title>
+<meta name="description" content="Neuro Workbench: a platform for inspecting and checking computational neuroscience models, with every number traceable to a recorded run. Independent project by Sarra Baouab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="../index.html">Sarra Baouab</a>
+  <nav class="nav" aria-label="Main">
+    <a href="neuro-workbench.html" aria-current="page">Neuro Workbench</a>
+    <a href="../index.html#exp-h">Experience</a>
+    <a href="../cv/Sarra_Baouab_CV.pdf">CV</a>
+    <button class="theme-btn" id="theme-btn" type="button">Dark</button>
+  </nav>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+<header class="page-head">
+  <p class="crumb"><a href="../index.html">Home</a></p>
+  <h1>Neuro Workbench</h1>
+  <p class="question">How can we test whether a computational model reproduces the neural mechanisms it claims to represent?</p>
+  <p class="lede">Neuro Workbench is my platform for looking inside computational models of neurons, comparing simulators and checking models against theory, with every number traceable to a recorded run.</p>
+  <dl class="facts">
+    <div><dt>Role</dt><dd>Independent project: scientific direction, design, testing and validation</dd></div>
+    <div><dt>Period</dt><dd>October 2026 to present</dd></div>
+    <div><dt>Status</dt><dd><span class="status wip">Working prototype; validation in progress</span></dd></div>
+    <div><dt>Code</dt><dd>Private repository, available on request</dd></div>
+  </dl>
+</header>
+
+<div class="body">
+<article>
+  <section id="platform">
+    <h2>What the platform lets you do</h2>
+    <p class="lead-short">Models are one of the main ways neuroscience tests ideas about neurons and circuits, but their output is easy to misread. The workbench is built to make a model's behaviour visible and checkable.</p>
+    <div class="does">
+      <div><h3>Open</h3><p>Real neuron reconstructions from NeuroMorpho.Org in 3D, drawn at their true radii.</p></div>
+      <div><h3>Inspect</h3><p>Pin sites on a cell and read the stored voltage at each, with the exact sample and run behind every number.</p></div>
+      <div><h3>Compare</h3><p>Overlay two simulators' solutions of the same model, NEURON and Jaxley, and see exactly where they agree.</p></div>
+      <div><h3>Label</h3><p>Every view says whether it shows model output, a derived value or a schematic.</p></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <h2>Demonstration: a real hippocampal neuron</h2>
+    <p class="lead-short">Captured from the running application. The neuron is a real reconstruction; the voltages come from a computational model of it.</p>
+    <ol class="steps">
+      <li>
+        <div><span class="n"></span><h3>Open a reconstruction</h3><p>Rat CA1 pyramidal neuron n419 from NeuroMorpho.Org, drawn at its true radii. Three sites are pinned: the soma, P (102 µm along the apical dendrite) and D (400 µm).</p></div>
+        <figure class="figure portrait"><a class="plate" href="../assets/img/nw-n419-overview.webp"><img src="../assets/img/nw-n419-neuron.webp" width="570" height="825" alt="The reconstructed neuron in 3D, blue basal dendrites below the soma and orange apical dendrites above, with pins at the soma, P and D." loading="lazy"></a></figure>
+      </li>
+      <li>
+        <div><span class="n"></span><h3>Select a site</h3><p>The pin, its branch, the inspector and the traces share one selection. The inspector gives the site's position in the reconstruction and in the NEURON model.</p></div>
+        <figure class="figure"><a class="plate" href="../assets/img/nw-step-select.webp"><img src="../assets/img/nw-step-select.webp" width="1400" height="388" alt="The 3D view with the selected branch highlighted and the inspector showing site D at 400.093 micrometres path distance, both in the reconstruction and in the NEURON placement." loading="lazy"></a></figure>
+      </li>
+      <li>
+        <div><span class="n"></span><h3>Read the stored output</h3><p>Voltage at all three sites after a 20 pA current step at D. Hovering names the exact stored sample and the run it came from; the table is computed from the stored traces.</p></div>
+        <figure class="figure"><a class="plate" href="../assets/img/nw-step-readout.webp"><img src="../assets/img/nw-step-readout.webp" width="1320" height="600" alt="Site traces panel: three voltage traces after a current step at D, a hover readout giving time and voltage of a stored sample, and a table of voltage change and resistance per site." loading="lazy"></a></figure>
+      </li>
+      <li>
+        <div><span class="n"></span><h3>Compare two simulators</h3><p>An EPSC-shaped current at P, with Jaxley's solution of the same model drawn over NEURON's.</p></div>
+        <figure class="figure"><a class="plate" href="../assets/img/nw-n419-traces-jaxley.webp"><img src="../assets/img/nw-n419-traces-crop.webp" width="1320" height="570" alt="Site traces panel with an EPSC-shaped response at three sites, NEURON and Jaxley traces overlaid, and a readout giving both simulators' values at the same time point." loading="lazy"></a></figure>
+      </li>
+    </ol>
+    <div class="caveat prose">
+      <p><strong>Simulated, not recorded.</strong> These traces are stored output of a passive computational model, checked against their checksums before display. No voltage was ever measured in n419; only its shape was traced from microscope images.</p>
+    </div>
+  </section>
+
+  <section id="evidence">
+    <h2>What has been verified</h2>
+    <div class="evidence">
+      <div><span class="big">22 of 22</span><p>quantities on which NEURON and Jaxley agree within 0.5% for the passive n419 model; the largest difference is 0.22%.</p></div>
+      <div><span class="big">8 of 8</span><p>measurements of n419 shown by the workbench that match the NeuroMorpho.Org archive.</p></div>
+    </div>
+  </section>
+
+  <section id="limits">
+    <h2>Limitations</h2>
+    <ul class="prose">
+      <li><b>Verification, not biological validation.</b> Agreement between simulators shows the numbers are computed correctly, not that a model behaves like a living neuron.</li>
+      <li><b>A simple neuron model.</b> The n419 model is passive, with no spike-generating channels, and its parameters come from other neurons rather than being fitted to this one.</li>
+      <li><b>One check still open.</b> A cable-theory check at the distal site is unmet, so that validation phase stays open (details below).</li>
+      <li><b>Early stage.</b> The platform runs on one machine and has not been released.</li>
+    </ul>
+  </section>
+
+  <section id="technical">
+    <h2>Technical documentation</h2>
+    <p class="lead-short">For researchers who want the detail.</p>
+
+    <details class="tech">
+      <summary>LN-1: checking a model of a real neuron</summary>
+      <div class="inner prose">
+        <p>LN-1 is the workbench's first experiment with a real neuron's shape. It asks whether a passive cable model of n419 behaves as cable theory requires, and whether two independent simulators compute the same answer. The protocol and every pass/fail threshold were fixed before any run, and failures stay on record.</p>
+        <ul>
+          <li><b>Phase 0, complete.</b> NEURON imports the reconstruction as expected. NEURON and Jaxley agree on all 22 reference quantities (end-of-step voltage changes and EPSC-response peaks at the three sites) within 0.5%; the largest difference is 0.22%. The first comparison failed 2 of the 22 because the two simulators placed the recording sites slightly differently. A documented correction aligned the sites, and the original failure is kept on record.</li>
+          <li><b>Phase 1, not complete.</b> When the internal resistance of the dendrites is made very small, every point of the cell should sit at nearly the same voltage. At the distal site D the remaining difference is 3.08×10⁻³, against a criterion of 10⁻³. The size of the miss was predicted before the run; that explains it but does not make the check pass, so the phase stays open.</li>
+        </ul>
+        <p>The demonstration uses the two Phase 0 runs only and counts toward none of LN-1's acceptance criteria.</p>
+      </div>
+    </details>
+
+    <details class="tech">
+      <summary>How the stored data are protected from mistakes</summary>
+      <div class="inner prose">
+        <ul>
+          <li>Exactly two stored runs can be shown, and they are fixed in the loader's code: a NEURON 9.0.2 run (<span class="data">d_lambda ×9</span>, 9,863 segments, <span class="data">dt 0.025 ms</span>) and a Jaxley 0.14.0 run of the same model.</li>
+          <li>Before anything is drawn, each run must pass its manifest's SHA-256 checksums, match the n419 dataset file and the frozen protocol, and reproduce from its own traces the 22 reference quantities stored with the validation results. Today all 22 match bit for bit for both runs. A run that fails is refused with its reason.</li>
+          <li>Every drawn point is a stored sample. Nothing is interpolated, and long windows show each pixel's exact minimum and maximum.</li>
+          <li>Every view carries a "Simulated" label, and the panel heading stays in view: "Model output, not a recording from a living neuron."</li>
+          <li>Opening the demonstration simulates nothing; the loader imports no simulator and writes no file.</li>
+        </ul>
+        <p class="small muted">Reconstruction n419: Pyapali, Sik, Penttonen, Buzsáki &amp; Turner (1998), <i>J Comp Neurol</i> 391:335–352; NeuroMorpho.Org, CC BY 4.0. Model parameters: R<sub>m</sub> 25,700 Ω·cm², R<sub>i</sub> 200 Ω·cm, C<sub>m</sub> 1 µF/cm², E<sub>leak</sub> −70 mV. Stimuli: a 20 pA step (1 s) and a 20 pA EPSC-shaped current (rise 0.5 ms, decay 5 ms).</p>
+        <figure class="figure">
+          <a class="plate" href="../assets/img/nw-n419-inspector.webp"><img src="../assets/img/nw-n419-inspector.webp" width="1600" height="848" alt="Full application window: dataset panel, 3D view, site traces for a current step at D, and the inspector at site P." loading="lazy"></a>
+          <figcaption><span class="src shot">Screenshot</span> The full workspace: dataset metadata, the 3D view, site traces and the inspector, with a status bar reporting 8 of 8 measurements matching the archive.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="tech">
+      <summary>Methods and tools</summary>
+      <div class="inner prose">
+        <ul>
+          <li><b>Simulation:</b> NEURON 9.0.2, Jaxley 0.14; passive cable theory, cross-engine comparison</li>
+          <li><b>Data:</b> NeuroMorpho.Org SWC reconstructions, verified by checksum; L-Measure morphometry as reference</li>
+          <li><b>Reproducibility:</b> frozen protocols, run manifests (seed, configuration and environment hashes), decision records for every amendment</li>
+          <li><b>Software:</b> Python, FastAPI, pytest; TypeScript, React, Three.js, Electron</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="tech">
+      <summary>Planned next</summary>
+      <div class="inner prose">
+        <p><span class="status plan">Planned, not built</span></p>
+        <ul>
+          <li>Close LN-1 Phase 1, then add active conductances to the n419 model.</li>
+          <li>Model comparison and neural decoding on open datasets, with the same provenance rules.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <nav class="next" aria-label="More">
+    <a href="../index.html">Back to home</a>
+    <a href="../cv/Sarra_Baouab_CV.pdf">CV (PDF)</a>
+  </nav>
+</article>
+
+<aside class="toc" aria-label="On this page">
+  <p>On this page</p>
+  <ol>
+    <li><a href="#platform">What it lets you do</a></li>
+    <li><a href="#demo">Demonstration</a></li>
+    <li><a href="#evidence">What has been verified</a></li>
+    <li><a href="#limits">Limitations</a></li>
+    <li><a href="#technical">Technical documentation</a></li>
+  </ol>
+</aside>
+</div>
+</div>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <p>Sarra Baouab, Frankfurt am Main. <a href="mailto:contact@sarrabaouab.com">contact@sarrabaouab.com</a></p>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
