@@ -326,7 +326,7 @@ function pause() { if (engine) engine.renderer.setAnimationLoop(null); S.suspend
 document.addEventListener("visibilitychange", () => { if (document.hidden) S.suspend(); else if (root.dataset.mode === "room" && S.enabled) S.resume(); });
 
 const fontsReady = Promise.race([
-  Promise.all(["28px Michroma", "400 40px Sora", "600 28px Sora", "21px 'Nanum Pen Script'"].map((f) => document.fonts.load(f))),
+  Promise.all(["28px Michroma", "400 40px Oxanium", "600 28px Oxanium", "21px 'Nanum Pen Script'"].map((f) => document.fonts.load(f))),
   new Promise((r) => setTimeout(r, 4000)),
 ]).catch(() => {});
 

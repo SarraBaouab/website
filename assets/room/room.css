@@ -7,7 +7,7 @@
   --cyan: #0aa2d8; --cyan-ink: #066c92; --glow: #7fe3ff; --tint: #e3f5fc;
   --screen: #0c1d2a; --screen-ink: #d9f3ff; --screen-muted: #8fb2c4; --screen-line: rgba(127, 227, 255, .28);
   --glass: rgba(248, 251, 253, .86); --glass-strong: rgba(250, 252, 253, .96); --shadow: rgba(28, 58, 80, .2);
-  --font-ui: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-ui: "Oxanium", "Segoe UI", system-ui, sans-serif;
   --font-hud: "Michroma", "Segoe UI", system-ui, sans-serif;
   --font-hand: "Nanum Pen Script", "Segoe Print", cursive;
   color-scheme: light; color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;

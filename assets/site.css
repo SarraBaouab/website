@@ -10,8 +10,8 @@
   --ok: #1d7553; --wip: #8f5500; --plan: #5c6172;
   --plate: #0c1d2a; --plate-ink: #d9f3ff;
   --display: "Michroma", "Segoe UI", system-ui, sans-serif;
-  --text: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --data: "Sora", "Segoe UI", system-ui, sans-serif;
+  --text: "Oxanium", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --data: "Oxanium", "Segoe UI", system-ui, sans-serif;
   --measure: 66ch;
   --gutter: clamp(16px, 4vw, 40px);
   color-scheme: light;

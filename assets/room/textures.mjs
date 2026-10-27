@@ -23,14 +23,14 @@ export function makeMainScreen() {
     screenBg(g, 2048, 640);
     g.fillStyle = "#7fe3ff"; g.font = "28px Michroma, sans-serif"; g.fillText("Main screen", 120, 118);
     g.fillStyle = "#ffffff"; g.font = "88px Michroma, sans-serif"; g.fillText("Sarra Baouab", 112, 238);
-    g.fillStyle = "#cfeaf6"; g.font = "400 40px Sora, sans-serif"; g.fillText("Psychology researcher building new research tools.", 120, 318);
-    g.fillStyle = "#86aabd"; g.font = "400 32px Sora, sans-serif"; g.fillText("Frankfurt am Main, " + clockText(), 120, 378);
+    g.fillStyle = "#cfeaf6"; g.font = "400 40px Oxanium, sans-serif"; g.fillText("Psychology researcher building new research tools.", 120, 318);
+    g.fillStyle = "#86aabd"; g.font = "400 32px Oxanium, sans-serif"; g.fillText("Frankfurt am Main, " + clockText(), 120, 378);
     let x = 120;
     ["About", "Research", "Experience", "Skills", "CV", "Contact"].forEach((s) => {
-      g.font = "600 28px Sora, sans-serif"; const w = g.measureText(s).width + 46;
+      g.font = "600 28px Oxanium, sans-serif"; const w = g.measureText(s).width + 46;
       rr(g, x, 432, w, 58, 29); g.strokeStyle = "rgba(127,227,255,.65)"; g.lineWidth = 2; g.stroke(); g.fillStyle = "#d9f3ff"; g.fillText(s, x + 23, 470); x += w + 16;
     });
-    g.fillStyle = "#7fe3ff"; g.font = "400 27px Sora, sans-serif"; g.fillText("Tap the screen to open my files", 120, 560);
+    g.fillStyle = "#7fe3ff"; g.font = "400 27px Oxanium, sans-serif"; g.fillText("Tap the screen to open my files", 120, 560);
     const mods = [["Forensic and legal", "psychology"], ["Neuropsychology", ""], ["Neurotechnology", ""], ["AI tools for", "psychology"]];
     mods.forEach((m, i) => {
       const cx = 1350 + (i % 2) * 320, cy = 96 + Math.floor(i / 2) * 236;
@@ -44,7 +44,7 @@ export function makeMainScreen() {
       if (i === 3) dots.forEach(([a, b], k) => { if (k !== 2) { g.moveTo(a, b); g.lineTo(dots[2][0], dots[2][1]); } });
       g.stroke();
       if (i === 3) { g.fillStyle = "#7fe3ff"; dots.forEach(([a, b]) => { g.beginPath(); g.arc(a, b, 8, 0, Math.PI * 2); g.fill(); }); }
-      g.fillStyle = "#e6f7ff"; g.font = "600 26px Sora, sans-serif"; g.fillText(m[0], cx + 30, cy + 150); if (m[1]) g.fillText(m[1], cx + 30, cy + 184);
+      g.fillStyle = "#e6f7ff"; g.font = "600 26px Oxanium, sans-serif"; g.fillText(m[0], cx + 30, cy + 150); if (m[1]) g.fillText(m[1], cx + 30, cy + 184);
     });
     t.tex.needsUpdate = true;
   };
@@ -60,8 +60,8 @@ export function makeLog() {
     LOG_ROWS.forEach(([when, what], i) => {
       const x = 120 + i * 205;
       g.fillStyle = i === LOG_ROWS.length - 1 ? "#ffffff" : "#7fe3ff"; g.beginPath(); g.arc(x, 200, 13, 0, Math.PI * 2); g.fill();
-      g.fillStyle = "#7fe3ff"; g.font = "600 24px Sora, sans-serif"; g.fillText(when, x - 22, 158);
-      g.fillStyle = "#e6f7ff"; g.font = "400 25px Sora, sans-serif"; what.forEach((l, k) => g.fillText(l, x - 22, 258 + k * 34));
+      g.fillStyle = "#7fe3ff"; g.font = "600 24px Oxanium, sans-serif"; g.fillText(when, x - 22, 158);
+      g.fillStyle = "#e6f7ff"; g.font = "400 25px Oxanium, sans-serif"; what.forEach((l, k) => g.fillText(l, x - 22, 258 + k * 34));
     });
     t.tex.needsUpdate = true;
   };
@@ -140,7 +140,7 @@ export function makeTraining() {
     g.fillStyle = "#7fe3ff"; g.font = "24px Michroma, sans-serif"; g.fillText("Training session", 36, 58);
     const m = Math.floor(t.left / 60), sec = Math.floor(t.left % 60);
     g.fillStyle = "#ffffff"; g.font = "96px Michroma, sans-serif"; g.fillText(`0${m}:${sec < 10 ? "0" : ""}${sec}`, 36, 220);
-    g.fillStyle = "#86aabd"; g.font = "400 22px Sora, sans-serif"; g.fillText("Session timer", 40, 270);
+    g.fillStyle = "#86aabd"; g.font = "400 22px Oxanium, sans-serif"; g.fillText("Session timer", 40, 270);
     g.fillStyle = "rgba(127,227,255,.25)"; rr(g, 36, 310, 696, 12, 6); g.fill();
     g.fillStyle = "#7fe3ff"; rr(g, 36, 310, 696 * (t.left / 300), 12, 6); g.fill();
     t.tex.needsUpdate = true;
@@ -150,11 +150,11 @@ export function makeTraining() {
 
 export const makeCvScreen = () => canvasTex(256, 128, (g) => {
   screenBg(g, 256, 128); g.fillStyle = "#ffffff"; g.font = "30px Michroma, sans-serif"; g.fillText("CV", 22, 58);
-  g.fillStyle = "#7fe3ff"; g.font = "600 19px Sora, sans-serif"; g.fillText("Tap to print", 22, 100);
+  g.fillStyle = "#7fe3ff"; g.font = "600 19px Oxanium, sans-serif"; g.fillText("Tap to print", 22, 100);
 });
 export const makePaper = () => canvasTex(256, 340, (g) => {
-  g.fillStyle = "#ffffff"; g.fillRect(0, 0, 256, 340); g.fillStyle = "#0f1f2b"; g.font = "700 22px Sora, sans-serif"; g.fillText("Sarra Baouab", 22, 44);
-  g.fillStyle = "#066c92"; g.font = "600 13px Sora, sans-serif"; g.fillText("Psychology researcher", 22, 66);
+  g.fillStyle = "#ffffff"; g.fillRect(0, 0, 256, 340); g.fillStyle = "#0f1f2b"; g.font = "700 22px Oxanium, sans-serif"; g.fillText("Sarra Baouab", 22, 44);
+  g.fillStyle = "#066c92"; g.font = "600 13px Oxanium, sans-serif"; g.fillText("Psychology researcher", 22, 66);
   g.fillStyle = "#c9d4dc"; for (let i = 0; i < 12; i++) { g.fillRect(22, 92 + i * 19, i % 4 === 0 ? 90 : 160 + ((i * 37) % 50), 7); }
 });
 export const makeTableTop = () => canvasTex(512, 512, (g) => {
