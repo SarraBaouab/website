@@ -2,29 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sarra Baouab, psychology researcher</title>
 <meta name="description" content="Sarra Baouab: psychology researcher interested in forensic and legal psychology, neuropsychology, neurotechnology and AI tools for psychology.">
 <meta property="og:title" content="Sarra Baouab">
 <meta property="og:description" content="Psychology researcher building new research tools.">
 <meta property="og:image" content="assets/img/nw-n419-traces-crop.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="assets/boot.js"></script>
+<link rel="preload" href="assets/fonts/sora-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/room/room.css">
 <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-head"><div class="wrap">
-  <a class="brand" href="index.html">Sarra Baouab</a>
+<header class="hud"><div class="wrap">
+  <a class="hud-name brand" href="./">Sarra Baouab</a>
   <nav class="nav" aria-label="Main">
-    <a href="#research-h">Research</a>
-    <a href="#exp-h">Experience</a>
-    <a href="cv/Sarra_Baouab_CV.pdf">CV</a>
-    <button class="theme-btn" id="theme-btn" type="button">Dark</button>
+    <a class="plain-only" href="#research-h">Research</a>
+    <a class="plain-only" href="#exp-h">Experience</a>
+    <a class="btn" id="cv-btn" href="cv/Sarra_Baouab_CV.pdf">CV</a>
+    <button class="btn" id="snd" type="button" aria-pressed="false" hidden>Sound off</button>
+    <button class="btn" id="mode-btn" type="button"><span class="to-plain">Plain version</span><span class="to-room">Enter the 3D room</span></button>
+    <button class="theme-btn plain-only" id="theme-btn" type="button">Dark</button>
   </nav>
 </div></header>
+<p id="plain-note">Your browser can't show the 3D room, so here is the plain version.</p>
 
 <main id="main">
 <section class="hero"><div class="wrap">
@@ -122,6 +126,69 @@
 <footer class="site-foot"><div class="wrap">
   <p>Sarra Baouab, Frankfurt am Main. <a href="mailto:contact@sarrabaouab.com">contact@sarrabaouab.com</a></p>
 </div></footer>
+
+<div id="room" aria-label="3D command room">
+<canvas id="scene" aria-label="A 3D command room. Press Tab to reach a button for each station."></canvas>
+
+<div id="loader" class="screen" role="status">
+  <div class="ld"><p class="ld-name">Sarra Baouab</p><div class="ld-bar"><span id="ld-bar"></span></div><p class="ld-msg"><span id="ld-msg">Calibrating the hologram</span>, <span id="ld-pct">0%</span></p></div>
+</div>
+
+<div id="start" class="screen" hidden>
+  <div class="start-box">
+    <p class="who-line" id="start-who"></p>
+    <h2 class="start-title" id="start-title"></h2>
+    <p id="start-sub"></p>
+    <div class="start-actions">
+      <button id="enter-sound" class="btn primary" type="button"></button>
+      <button id="enter-quiet" class="btn" type="button"></button>
+    </div>
+    <button id="start-plain" class="plain" type="button"></button>
+  </div>
+</div>
+
+<p id="hint" hidden></p>
+<nav class="kbd-nav" id="kbd-nav" aria-label="Stations in the room"></nav>
+<div id="tip" hidden></div>
+<div id="toast" hidden role="status"></div>
+<div id="bubbles"></div>
+<div id="botsay" hidden></div>
+
+<aside id="chat" hidden aria-label="Chat with Oura">
+  <div class="chat-head"><div><p class="chat-name">Oura</p><p class="chat-note" id="chat-note"></p></div><button id="chat-close" class="btn small" type="button">Close</button></div>
+  <div id="chat-log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="chat-form" id="chat-form"><label class="sr" for="chat-in">Your message</label><input id="chat-in" autocomplete="off" maxlength="400"><button id="chat-send" class="btn primary" type="submit">Send</button></form>
+</aside>
+
+<aside id="card" hidden aria-live="polite">
+  <div id="card-body"></div>
+  <div id="card-actions" class="card-actions"></div>
+  <button id="card-back" class="btn" type="button">Back to the room</button>
+</aside>
+
+<div id="os" hidden>
+  <div class="os-bar"><span class="os-name">Main screen</span><span id="os-clock"></span><button id="os-off" class="btn small" type="button">Close</button></div>
+  <div class="os-desk" id="os-desk"></div>
+  <div id="os-wins"></div>
+  <div id="os-boot" hidden></div>
+</div>
+
+<div id="pv" hidden role="dialog" aria-modal="true" aria-labelledby="pv-title">
+  <div class="pv-bar"><p id="pv-title">Neuro Workbench preview</p><button id="pv-close" class="btn small" type="button">Close preview</button></div>
+  <figure class="pv-fig"><img id="pv-img" alt=""><figcaption><p id="pv-count">1 of 5</p><h3 id="pv-h"></h3><p id="pv-text"></p></figcaption></figure>
+  <div class="pv-nav"><button id="pv-prev" class="btn" type="button">Previous</button><div class="pv-dots" id="pv-dots"></div><button id="pv-next" class="btn primary" type="button">Next</button></div>
+  <p class="pv-note">Simulated, not recorded: the voltages are stored output of a passive computational model. Reconstruction n419: Pyapali et al. (1998), NeuroMorpho.Org, CC BY 4.0; Tecuatl, Ljungquist &amp; Ascoli (2024). <a href="work/neuro-workbench.html">Read the full project page</a></p>
+</div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "./assets/vendor/three/three.module.min.js",
+  "three/addons/": "./assets/vendor/three/addons/"
+} }
+</script>
+<script type="module" src="assets/room/main.mjs"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neuro Workbench, Sarra Baouab</title>
 <meta name="description" content="Neuro Workbench: a platform for inspecting and checking computational neuroscience models, with every number traceable to a recorded run. Independent project by Sarra Baouab.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
 <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 </head>
@@ -57,11 +55,11 @@
     <ol class="steps">
       <li>
         <div><span class="n"></span><h3>Open a reconstruction</h3><p>Rat CA1 pyramidal neuron n419 from NeuroMorpho.Org, drawn at its true radii. Three sites are pinned: the soma, P (102 µm along the apical dendrite) and D (400 µm).</p></div>
-        <figure class="figure portrait"><a class="plate" href="../assets/img/nw-n419-overview.webp"><img src="../assets/img/nw-n419-neuron.webp" width="570" height="825" alt="The reconstructed neuron in 3D, blue basal dendrites below the soma and orange apical dendrites above, with pins at the soma, P and D." loading="lazy"></a></figure>
+        <figure class="figure portrait"><a class="plate" href="../assets/img/nw-n419-overview.webp"><img src="../assets/img/nw-n419-neuron.webp" width="570" height="825" alt="The reconstructed neuron in 3D, blue basal dendrites below the soma and orange apical dendrites above, with pins at the soma, P and D." loading="lazy"></a><figcaption class="credit">Reconstruction n419: Pyapali et al. (1998), NeuroMorpho.Org, CC BY 4.0; Tecuatl, Ljungquist &amp; Ascoli (2024).</figcaption></figure>
       </li>
       <li>
         <div><span class="n"></span><h3>Select a site</h3><p>The pin, its branch, the inspector and the traces share one selection. The inspector gives the site's position in the reconstruction and in the NEURON model.</p></div>
-        <figure class="figure"><a class="plate" href="../assets/img/nw-step-select.webp"><img src="../assets/img/nw-step-select.webp" width="1400" height="388" alt="The 3D view with the selected branch highlighted and the inspector showing site D at 400.093 micrometres path distance, both in the reconstruction and in the NEURON placement." loading="lazy"></a></figure>
+        <figure class="figure"><a class="plate" href="../assets/img/nw-step-select.webp"><img src="../assets/img/nw-step-select.webp" width="1400" height="388" alt="The 3D view with the selected branch highlighted and the inspector showing site D at 400.093 micrometres path distance, both in the reconstruction and in the NEURON placement." loading="lazy"></a><figcaption class="credit">Reconstruction n419: Pyapali et al. (1998), NeuroMorpho.Org, CC BY 4.0; Tecuatl, Ljungquist &amp; Ascoli (2024).</figcaption></figure>
       </li>
       <li>
         <div><span class="n"></span><h3>Read the stored output</h3><p>Voltage at all three sites after a 20 pA current step at D. Hovering names the exact stored sample and the run it came from; the table is computed from the stored traces.</p></div>
@@ -124,7 +122,7 @@
         <p class="small muted">Reconstruction n419: Pyapali, Sik, Penttonen, Buzsáki &amp; Turner (1998), <i>J Comp Neurol</i> 391:335–352; NeuroMorpho.Org, CC BY 4.0. Model parameters: R<sub>m</sub> 25,700 Ω·cm², R<sub>i</sub> 200 Ω·cm, C<sub>m</sub> 1 µF/cm², E<sub>leak</sub> −70 mV. Stimuli: a 20 pA step (1 s) and a 20 pA EPSC-shaped current (rise 0.5 ms, decay 5 ms).</p>
         <figure class="figure">
           <a class="plate" href="../assets/img/nw-n419-inspector.webp"><img src="../assets/img/nw-n419-inspector.webp" width="1600" height="848" alt="Full application window: dataset panel, 3D view, site traces for a current step at D, and the inspector at site P." loading="lazy"></a>
-          <figcaption><span class="src shot">Screenshot</span> The full workspace: dataset metadata, the 3D view, site traces and the inspector, with a status bar reporting 8 of 8 measurements matching the archive.</figcaption>
+          <figcaption><span class="src shot">Screenshot</span> The full workspace: dataset metadata, the 3D view, site traces and the inspector, with a status bar reporting 8 of 8 measurements matching the archive. <span class="credit">Reconstruction n419: Pyapali et al. (1998), NeuroMorpho.Org, CC BY 4.0; Tecuatl, Ljungquist &amp; Ascoli (2024).</span></figcaption>
         </figure>
       </div>
     </details>
